@@ -16,7 +16,10 @@ public class Employee{
 	private String name;
 	private Double salary;
 	private Date hireDay;
-	
+//	初始化块
+	{
+		this.name="";
+	}
 	public Employee(String n,double s,int year,int month,int day) {
 		setName(n);
 		setSalary(s);
@@ -24,6 +27,10 @@ public class Employee{
 		setHireDay(calendar.getTime());
 	}
 
+//	构造函数调用
+	public Employee(String name,double salary){
+		this(name,salary,new Date().getYear(),new Date().getMonth(),new Date().getDay());
+	}
 	public String getName() {
 		return name;
 	}
