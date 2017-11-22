@@ -9,6 +9,12 @@ package v1.ch05;
  * @Description: Integer
  */
 public class IntergerTest {
+	public IntergerTest(){
+		
+	}
+	public IntergerTest(String string){
+		
+	}
 
 	/**
 	 * @Description: Integer
