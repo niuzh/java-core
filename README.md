@@ -6,3 +6,4 @@ git clone git@github.com:niuzh/java-core.git #从服务器上将代码给拉下�
 git commit -am "注释备注" # 提交本地仓库
 git push origin master   # 将本地主分支推到远程主分支
 git fetch origin master //从远程的origin仓库的master分支下载代码到本地的origin master
+git reset --hard HEAD # 还原代码
