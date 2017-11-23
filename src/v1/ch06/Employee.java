@@ -10,7 +10,7 @@ import com.sun.org.apache.regexp.internal.recompile;
  * @date 2017-11-23 9:14:11 AM
  * @Description: TODO
  */
-public class Employee implements Comparable<Employee> {
+public class Employee implements Comparable<Employee> ,Cloneable{
 	private String name;
 	private double salary;
 
@@ -46,5 +46,12 @@ public class Employee implements Comparable<Employee> {
 	@Override
 	public String toString(){
 		return this.getClass().getSimpleName()+"[name:"+name+",salary:"+salary+"]";
+	}
+	
+	@Override
+	public Employee clone() throws CloneNotSupportedException{
+		Employee employee=(Employee)super.clone();
+		return employee;
+		
 	}
 }

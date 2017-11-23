@@ -24,6 +24,22 @@ public class EmployeeSortTest {
 		for(Employee e:employees){
 			System.out.println(e);
 		}
+		System.out.println("cloneTest");
+		System.out.println(employees[0]);
+		Employee clone=cloneTest(employees[0]);
+		System.out.println(employees[0]);
+		System.out.println(clone);
 	}
 
+	public static Employee cloneTest(Employee employee){
+		Employee clone=null;
+		try {
+			clone=employee.clone();
+			clone.setName("clone");
+			return clone;
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return clone;
+	}
 }
