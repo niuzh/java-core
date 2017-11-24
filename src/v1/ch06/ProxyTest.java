@@ -20,7 +20,6 @@ public class ProxyTest {
 	 */
 	public static void main(String[] args) {
 		Object[] elements=new Object[2];
-//		图形程序设计ksdf
 		//fill elements with proxies for the integers 1.. 1000
 		for(int i=0;i<elements.length;i++){
 			Integer value=i+1;
