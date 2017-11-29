@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 
 public class ResourceTest {
 
+	//jar cvfe ResourceTest.jar v1.ch10.ResourceTest v1/ch10/*.class v1/ch10/*.gif v1/ch10/*.txt
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
