@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,6 +19,9 @@ public class ResourceTest {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
+				Logger.getGlobal().info("启动");
+				//堆栈跟踪
+				Thread.dumpStack();
 				JFrame frame=new ResourceTestFrame();
 				frame.setTitle("ResourceTest");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,6 +37,7 @@ class ResourceTestFrame extends JFrame{
 		add(textArea);
 		setSize(300,300);
 		URL url=getClass().getResource("tomcat.gif");
+		Logger.getGlobal().info("url："+url);
 		Image image=new ImageIcon(url).getImage();
 		setIconImage(image);
 		InputStream stream=getClass().getResourceAsStream("index.txt");
