@@ -39,7 +39,7 @@ public class RobotTest {
 				@Override
 				public void run() {
 					runTest(robot);
-				}
+				} 
 
 				private void runTest(Robot robot) {
 					robot.keyPress(KeyEvent.VK_SPACE);
