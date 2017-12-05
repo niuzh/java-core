@@ -3,6 +3,7 @@
  */
 package v1.ch04;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -12,7 +13,7 @@ import java.util.GregorianCalendar;
  * @Description: 雇员类
  */
 
-public class Employee{
+public class Employee implements Serializable{
 	private String name;
 	private Double salary;
 	private Date hireDay;
