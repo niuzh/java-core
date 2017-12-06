@@ -2,14 +2,27 @@ package v2.ch03;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SockTest {
 
 	public static void main(String[] args) throws Exception, IOException {
 		String server = "time-a.nist.gov";
+//		InetAddress[] address=InetAddress.getAllByName("time-A.timefreq.bldrdoc.gov");
+		InetAddress[] address=InetAddress.getAllByName("funi.com");
+		System.out.println(address.length);
+		for (int i = 0; i < address.length; i++) {
+			InetAddress inetAddress = address[i];
+			System.out.println(inetAddress);
+		}
+		InetAddress local=InetAddress.getLoopbackAddress();
+		System.out.println(local);
+		local=InetAddress.getLocalHost();
+		System.out.println(local);
 		int port = 13;
 		@SuppressWarnings("resource")
 		Socket socket = new Socket();
