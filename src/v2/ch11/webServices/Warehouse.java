@@ -1,4 +1,4 @@
-package v2.分布式对象.webServices;
+package v2.ch11.webServices;
 
 import java.util.HashMap;
 import java.util.Map;

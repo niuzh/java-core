@@ -1,7 +1,7 @@
 /**
  * 
  */
-package v2.分布式对象.webServices.service;
+package v2.ch11.webServices;
 
 import javax.xml.ws.Endpoint;
 
