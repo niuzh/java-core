@@ -1,9 +1,33 @@
-# java-core
-## java核心练习代码
-cd ~/Documents/workspace<br/>
-## 从远程主机克隆一个版本库
-git clone git@github.com:niuzh/java-core.git #从服务器上将代码给拉下来 项目文件夹为grit<br/>
-git commit -am "注释备注" # 提交本地仓库<br/>
-git push origin master   # 将本地主分支推到远程主分支<br/>
-git fetch origin master //从远程的origin仓库的master分支下载代码到本地的origin master<br/>
-git reset --hard HEAD # 还原代码<br/>
+# 学习策略
+* 做读书笔记：记录每一个知识点，以及理解作者讲述的思路。
+* 编写每一个demo：理解demo的代码结构和原理，如果有备注则代码添加注释。
+
+# Java 核心技术 卷I
+本书主要介绍了Java语言的一些基础关键特性。
+
+# Java 核心技术 卷II 高级特性(定价139.00元)
+本书全面覆盖Java技术的高级主题，包括 流与文件、XML、网络、数据库编程、图形与GUI编程、安全、远程方法和本地方法。
+
+第1章 流和文件：输入输出的处理。
+
+第2章 XML
+
+第3章 网络
+
+第4章 数据库编程
+
+第5章 国际化
+
+第6章 高级Swing
+
+第7章 高级AWT
+
+第8章 JavaBean构件
+
+第9章 安全
+
+第10章 脚本、编译与注解处理
+
+第11章 分布式对象
+
+第12章 本地方法
