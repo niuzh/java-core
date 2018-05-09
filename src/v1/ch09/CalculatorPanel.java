@@ -10,8 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.sun.javafx.css.CalculatedValue;
-
 public class CalculatorPanel extends JPanel {
 	private JButton display;
 	private JPanel panel;

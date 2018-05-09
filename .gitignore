@@ -4,6 +4,8 @@
 */bin/
 *.pdb
 *.iml
-*.project
-*.classpath
+**/bin/*
 /bin/
+src-code/
+**/*.class
+.settings/
