@@ -35,7 +35,7 @@ public class HrefMatch {
 			String patternString = "<a\\s+href\\s*=\\s*(\"[^\"]*\"|[^\\s>]*)\\s*>";
 			Pattern pattern = Pattern.compile(patternString, Pattern.CASE_INSENSITIVE);
 			Matcher matcher = pattern.matcher(input);
-
+			//循环打印a标签
 			while (matcher.find()) {
 				int start = matcher.start();
 				int end = matcher.end();
