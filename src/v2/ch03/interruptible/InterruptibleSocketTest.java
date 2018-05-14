@@ -1,4 +1,4 @@
-package interruptible;
+package v2.ch03.interruptible;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -125,6 +125,7 @@ class InterruptibleSocketFrame extends JFrame
 
    /**
     * Connects to the test server, using interruptible I/O
+    * 客户端可自己断开连接，不必等待服务器结束服务。
     */
    public void connectInterruptibly() throws IOException
    {
@@ -159,6 +160,7 @@ class InterruptibleSocketFrame extends JFrame
 
    /**
     * Connects to the test server, using blocking I/O
+    * 连接一直阻塞，直到服务器结束服务。
     */
    public void connectBlocking() throws IOException
    {
