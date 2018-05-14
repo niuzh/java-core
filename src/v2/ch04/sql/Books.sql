@@ -19,4 +19,4 @@ INSERT INTO Books VALUES ('The Mythical Man-Month', '0-201-83595-9', '0201', 29.
 INSERT INTO Books VALUES ('The Soul of a New Machine', '0-679-60261-5', '0679', 18.95);
 INSERT INTO Books VALUES ('The UNIX Hater''s Handbook', '1-56884-203-1', '0471', 16.95);
 INSERT INTO Books VALUES ('UNIX System Administration Handbook', '0-13-020601-6', '013', 68.00);
-SELECT * FROM Books
+SELECT * FROM Books;

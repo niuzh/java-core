@@ -9,3 +9,6 @@
 src-code/
 **/*.class
 .settings/
+*.log
+#derby数据库文件过滤
+**/COREJAVA/

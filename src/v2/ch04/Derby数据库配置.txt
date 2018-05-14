@@ -1,0 +1,35 @@
+# 进入数据库文件存放目录
+cd /home/niu/workspace/java-core9/src/v2/ch04/sql
+# 启动数据库服务器
+java -jar /home/niu/Documents/tool/jdk1.8.0_131/db/lib/derbyrun.jar server start
+# 备注错误处理：access denied ("java.net.SocketPermission" "localhost:1527" "listen,resolve")
+ 确认当前Java命令使用那个Jdk,然后修改Java安全文件
+vi /home/niu/Documents/tool/jdk1.8.0_131/jre/lib/security/java.policy 
+新增如下命令
+permission java.net.SocketPermission "localhost:1527", "listen,resolve";
+关闭数据库
+java -jar /home/niu/Documents/tool/jdk1.8.0_131/db/lib/derbyrun.jar server shutdown
+
+连接数据库
+1 当前数据库目录下新增配置文件
+vi ij.properties
+ij.driver=org.apache.derby.jdbc.ClientDriver
+ij.protocol=jdbc:derby://localhost:1527/
+ij.database=COREJAVA;create=true
+#用户密码登陆
+ij.database=COREJAVA;create=true;user=root;password=1234567
+2 连接数据库
+java -jar /home/niu/Documents/tool/jdk1.8.0_131/db/lib/derbyrun.jar ij -p ij.properties
+
+3 设置用户名密码
+指定数据库认证提供者为数据库内置用户
+CALL SYSCS_UTIL.SYSCS_SET_DATABASE_PROPERTY('derby.authentication.provider','BUILTIN');
+启用数据库访问认证
+CALL SYSCS_UTIL.SYSCS_SET_DATABASE_PROPERTY('derby.connection.requireAuthentication','true');
+创建数据库用户和密码
+CALL SYSCS_UTIL.SYSCS_SET_DATABASE_PROPERTY('derby.user.root','1234567');
+设置全局访问用户
+CALL SYSCS_UTIL.SYSCS_SET_DATABASE_PROPERTY('derby.database.fullAccessUsers','root');
+设置默认连接方式
+CALL SYSCS_UTIL.SYSCS_SET_DATABASE_PROPERTY('derby.database.defaultConnectionMode','noAccess');
+修改ij.properties文件链接属性

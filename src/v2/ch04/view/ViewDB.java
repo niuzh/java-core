@@ -1,4 +1,4 @@
-package view;
+package v2.ch04.view;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -9,6 +9,8 @@ import java.util.*;
 import javax.sql.*;
 import javax.sql.rowset.*;
 import javax.swing.*;
+
+import v2.ch04.test.TestDB;
 
 /**
  * This program uses metadata to display arbitrary tables in a database.
@@ -44,7 +46,6 @@ class ViewDBFrame extends JFrame
    private DataPanel dataPanel;
    private Component scrollPane;
    private JComboBox<String> tableNames;
-   private Properties props;
    private CachedRowSet crs;
 
    public ViewDBFrame()
@@ -61,8 +62,7 @@ class ViewDBFrame extends JFrame
 
       try
       {
-         readDatabaseProperties();
-         try (Connection conn = getConnection())
+         try (Connection conn = TestDB.getConnection())
          {
             DatabaseMetaData meta = conn.getMetaData();
             ResultSet mrs = meta.getTables(null, null, null, new String[] { "TABLE" });
@@ -127,12 +127,13 @@ class ViewDBFrame extends JFrame
    /**
     * Prepares the text fields for showing a new table, and shows the first row.
     * @param tableName the name of the table to display
+ * @throws IOException 
     */
    public void showTable(String tableName)
    {
       try
       {
-         try (Connection conn = getConnection())
+         try (Connection conn = TestDB.getConnection())
          {
             // get result set
             Statement stat = conn.createStatement();
@@ -142,7 +143,10 @@ class ViewDBFrame extends JFrame
             crs = factory.createCachedRowSet();
             crs.setTableName(tableName);
             crs.populate(result);            
-         }
+         } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
          if (scrollPane != null) remove(scrollPane);
          dataPanel = new DataPanel(crs);
@@ -199,14 +203,17 @@ class ViewDBFrame extends JFrame
    {
       try
       {
-         try (Connection conn = getConnection())
+         try (Connection conn = TestDB.getConnection())
          {
             crs.deleteRow();
             crs.acceptChanges(conn);
             if (crs.isAfterLast()) 
                if (!crs.last()) crs = null;
             dataPanel.showRow(crs);
-         }
+         } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
       }
       catch (SQLException e)
       {
@@ -221,40 +228,19 @@ class ViewDBFrame extends JFrame
    {
       try
       {
-         try (Connection conn = getConnection())
+         try (Connection conn = TestDB.getConnection())
          {
             dataPanel.setRow(crs);
             crs.acceptChanges(conn);
-         }
+         } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
       }
       catch (SQLException e)
       {
          JOptionPane.showMessageDialog(this, e);
       }
-   }
-
-   private void readDatabaseProperties() throws IOException
-   {
-      props = new Properties();
-      try (InputStream in = Files.newInputStream(Paths.get("database.properties")))
-      {
-         props.load(in);
-      }
-      String drivers = props.getProperty("jdbc.drivers");
-      if (drivers != null) System.setProperty("jdbc.drivers", drivers);      
-   }
-   
-   /**
-    * Gets a connection from the properties specified in the file database.properties.
-    * @return the database connection
-    */
-   private Connection getConnection() throws SQLException
-   {
-      String url = props.getProperty("jdbc.url");
-      String username = props.getProperty("jdbc.username");
-      String password = props.getProperty("jdbc.password");
-
-      return DriverManager.getConnection(url, username, password);
    }
 }
 
