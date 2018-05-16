@@ -1,4 +1,4 @@
-package treeModel;
+package v2.ch06.treeModel;
 
 import java.lang.reflect.*;
 import java.util.*;
