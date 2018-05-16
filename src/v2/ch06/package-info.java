@@ -21,6 +21,7 @@
  * 	文本构件中的修改跟踪
  * 	格式化的输入框
  * 	JSpinner构件
+ * 	用JEditorPane显示HTML
  * 进度指示器
  * 构件组织器与装饰器
  * @author niu
