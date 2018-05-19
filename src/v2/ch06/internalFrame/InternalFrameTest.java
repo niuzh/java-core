@@ -1,4 +1,4 @@
-package internalFrame;
+package v2.ch06.internalFrame;
 
 import java.awt.*;
 import javax.swing.*;

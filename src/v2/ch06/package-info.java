@@ -23,7 +23,14 @@
  * 	JSpinner构件
  * 	用JEditorPane显示HTML
  * 进度指示器
- * 构件组织器与装饰器
+ * 	进度条(JProgressBar)
+ * 	进度监视器(ProgressMonitor):包含进度条的对话框。
+ * 	监视输入流的进度(ProgressMonitorInputStream)
+ * 构件组织器与装饰器:帮助组织其他构件的构件。
+ * 	分割面板(JSplitPane)
+ * 	选项卡面板(JTabbedPane)
+ * 	桌面面板和内部框架(JDesktopPane,JInternalFrame)
+ * 	否决属性设置 层
  * @author niu
  */
 package v2.ch06;
