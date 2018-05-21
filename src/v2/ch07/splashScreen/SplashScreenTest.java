@@ -1,138 +1,130 @@
-package splashScreen;
+package v2.ch07.splashScreen;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.SplashScreen;
 import java.util.List;
-import javax.swing.*;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
 
 /**
+ * 启动命令 
+ * java -splash:v2/ch07/splashScreen/splash.png v2.ch07.splashScreen.SplashScreenTest
  * This program demonstrates the splash screen API.
  * @version 1.00 2007-09-21
  * @author Cay Horstmann
  */
-public class SplashScreenTest
-{
-   private static final int DEFAULT_WIDTH = 300;
-   private static final int DEFAULT_HEIGHT = 300;
+public class SplashScreenTest {
+	private static final int DEFAULT_WIDTH = 300;
+	private static final int DEFAULT_HEIGHT = 300;
 
-   private static SplashScreen splash;
+	private static SplashScreen splash;
 
-   private static void drawOnSplash(int percent)
-   {
-      Rectangle bounds = splash.getBounds();
-      Graphics2D g = splash.createGraphics();
-      int height = 20;
-      int x = 2;
-      int y = bounds.height - height - 2;
-      int width = bounds.width - 4;
-      Color brightPurple = new Color(76, 36, 121);
-      g.setColor(brightPurple);
-      g.fillRect(x, y, width * percent / 100, height);
-      splash.update();
-   }
+	private static void drawOnSplash(int percent) {
+		Rectangle bounds = splash.getBounds();
+		Graphics2D g = splash.createGraphics();
+		int height = 20;
+		int x = 2;
+		int y = bounds.height - height - 2;
+		int width = bounds.width - 4;
+		Color brightPurple = new Color(76, 36, 121);
+		g.setColor(brightPurple);
+		g.fillRect(x, y, width * percent / 100, height);
+		splash.update();
+	}
 
-   /**
-    * This method draws on the splash screen.
-    */
-   private static void init1()
-   {
-      splash = SplashScreen.getSplashScreen();
-      if (splash == null)
-      {
-         System.err.println("Did you specify a splash image with -splash or in the manifest?");         
-         System.exit(1);
-      }
+	/**
+	* This method draws on the splash screen.
+	*/
+	private static void init1() {
+		splash = SplashScreen.getSplashScreen();
+		if (splash == null) {
+			System.err.println("Did you specify a splash image with -splash or in the manifest?");
+			System.exit(1);
+		}
 
-      try
-      {
-         for (int i = 0; i <= 100; i++)
-         {
-            drawOnSplash(i);
-            Thread.sleep(100); // simulate startup work
-         }
-      }
-      catch (InterruptedException e)
-      {
-      }
-   }
+		try {
+			for (int i = 0; i <= 100; i++) {
+				drawOnSplash(i);
+				Thread.sleep(100); // simulate startup work
+			}
+		} catch (InterruptedException e) {
+		}
+	}
 
-   /**
-    * This method displays a frame with the same image as the splash screen.
-    */
-   private static void init2()
-   {
-      final Image img = new ImageIcon(splash.getImageURL()).getImage();
-      
-      final JFrame splashFrame = new JFrame();
-      splashFrame.setUndecorated(true);
-      
-      final JPanel splashPanel = new JPanel()
-         {
-            public void paintComponent(Graphics g)
-            {
-               g.drawImage(img, 0, 0, null);
-            }
-         };
-         
-      final JProgressBar progressBar = new JProgressBar();
-      progressBar.setStringPainted(true);
-      splashPanel.setLayout(new BorderLayout());
-      splashPanel.add(progressBar, BorderLayout.SOUTH);
-      
-      splashFrame.add(splashPanel);
-      splashFrame.setBounds(splash.getBounds());
-      splashFrame.setVisible(true);
-            
-      new SwingWorker<Void, Integer>()
-      {
-         protected Void doInBackground() throws Exception
-         {
-            try
-            {
-               for (int i = 0; i <= 100; i++)
-               {
-                  publish(i);
-                  Thread.sleep(100);
-               }
-            }
-            catch (InterruptedException e)
-            {
-            }
-            return null;
-         }
+	/**
+	* This method displays a frame with the same image as the splash screen.
+	*/
+	private static void init2() {
+		final Image img = new ImageIcon(splash.getImageURL()).getImage();
 
-         protected void process(List<Integer> chunks)
-         {
-            for (Integer chunk : chunks)
-            {
-               progressBar.setString("Loading module " + chunk);
-               progressBar.setValue(chunk);
-               splashPanel.repaint(); // because img is loaded asynchronously
-            }
-         }
-         
-         protected void done()
-         {
-            splashFrame.setVisible(false);
+		final JFrame splashFrame = new JFrame();
+		splashFrame.setUndecorated(true);
 
-            JFrame frame = new JFrame();
-            frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setTitle("SplashScreenTest");
-            frame.setVisible(true);
-         }
-      }.execute();  
-   }
+		final JPanel splashPanel = new JPanel() {
+			public void paintComponent(Graphics g) {
+				g.drawImage(img, 0, 0, null);
+			}
+		};
 
-   public static void main(String args[])
-   {
-      init1();
+		final JProgressBar progressBar = new JProgressBar();
+		progressBar.setStringPainted(true);
+		splashPanel.setLayout(new BorderLayout());
+		splashPanel.add(progressBar, BorderLayout.SOUTH);
 
-      EventQueue.invokeLater(new Runnable()
-         {
-            public void run()
-            {
-               init2();
-            }
-         });
-   }
+		splashFrame.add(splashPanel);
+		splashFrame.setBounds(splash.getBounds());
+		splashFrame.setVisible(true);
+
+		new SwingWorker<Void, Integer>() {
+			protected Void doInBackground() throws Exception {
+				try {
+					for (int i = 0; i <= 100; i++) {
+						publish(i);
+						Thread.sleep(100);
+					}
+				} catch (InterruptedException e) {
+				}
+				return null;
+			}
+
+			protected void process(List<Integer> chunks) {
+				for (Integer chunk : chunks) {
+					progressBar.setString("Loading module " + chunk);
+					progressBar.setValue(chunk);
+					splashPanel.repaint(); // because img is loaded
+											// asynchronously
+				}
+			}
+
+			protected void done() {
+				splashFrame.setVisible(false);
+
+				JFrame frame = new JFrame();
+				frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setTitle("SplashScreenTest");
+				frame.setVisible(true);
+			}
+		}.execute();
+	}
+
+	public static void main(String args[]) {
+		init1();
+		// main方法启动后，将初始屏幕用相同尺寸和内容的后续视窗替换。
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				init2();
+			}
+		});
+	}
 }

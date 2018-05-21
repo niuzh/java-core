@@ -1,52 +1,62 @@
-package dnd;
+package v2.ch07.dnd;
 
-import java.awt.*;
-import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
+import java.awt.BorderLayout;
 
-public class SwingDnDFrame extends JFrame
-{
-   public SwingDnDFrame()
-   {
-      JTabbedPane tabbedPane = new JTabbedPane();
+import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.TransferHandler;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-      JList<String> list = SampleComponents.list();
-      tabbedPane.addTab("List", list);
-      JTable table = SampleComponents.table();
-      tabbedPane.addTab("Table", table);
-      JTree tree = SampleComponents.tree();
-      tabbedPane.addTab("Tree", tree);
-      JFileChooser fileChooser = new JFileChooser();
-      tabbedPane.addTab("File Chooser", fileChooser);
-      JColorChooser colorChooser = new JColorChooser();
-      tabbedPane.addTab("Color Chooser", colorChooser);
+public class SwingDnDFrame extends JFrame {
+	public SwingDnDFrame() {
+		JTabbedPane tabbedPane = new JTabbedPane();
 
-      final JTextArea textArea = new JTextArea(4, 40);
-      JScrollPane scrollPane = new JScrollPane(textArea);
-      scrollPane.setBorder(new TitledBorder(new EtchedBorder(), "Drag text here"));
+		JList<String> list = SampleComponents.list();
+		tabbedPane.addTab("List", list);
+		JTable table = SampleComponents.table();
+		tabbedPane.addTab("Table", table);
+		JTree tree = SampleComponents.tree();
+		tabbedPane.addTab("Tree", tree);
+		JFileChooser fileChooser = new JFileChooser();
+		tabbedPane.addTab("File Chooser", fileChooser);
+		JColorChooser colorChooser = new JColorChooser();
+		tabbedPane.addTab("Color Chooser", colorChooser);
 
-      JTextField textField = new JTextField("Drag color here");
-      textField.setTransferHandler(new TransferHandler("background"));
-      
-      tabbedPane.addChangeListener(new ChangeListener()
-         {
-            public void stateChanged(ChangeEvent e)
-            {
-               textArea.setText("");             
-            }
-         });
+		final JTextArea textArea = new JTextArea(4, 40);
+		JScrollPane scrollPane = new JScrollPane(textArea);
+		scrollPane.setBorder(new TitledBorder(new EtchedBorder(), "Drag text here"));
 
-      tree.setDragEnabled(true);
-      table.setDragEnabled(true);
-      list.setDragEnabled(true);
-      fileChooser.setDragEnabled(true);
-      colorChooser.setDragEnabled(true);
-      textField.setDragEnabled(true);
+		JTextField textField = new JTextField("Drag color here");
+		// 设置数据传递处理器
+		textField.setTransferHandler(new TransferHandler("background"));
 
-      add(tabbedPane, BorderLayout.NORTH);
-      add(scrollPane, BorderLayout.CENTER);
-      add(textField, BorderLayout.SOUTH);
-      pack();
-   }
+		tabbedPane.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				textArea.setText("");
+			}
+		});
+		// 启动拖拽
+		tree.setDragEnabled(true);
+		table.setDragEnabled(true);
+		list.setDragEnabled(true);
+		fileChooser.setDragEnabled(true);
+		colorChooser.setDragEnabled(true);
+		textField.setDragEnabled(true);
+
+		add(tabbedPane, BorderLayout.NORTH);
+		add(scrollPane, BorderLayout.CENTER);
+		add(textField, BorderLayout.SOUTH);
+		pack();
+	}
 }
