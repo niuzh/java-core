@@ -16,6 +16,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
 /**
+ * 产生密钥，加密，解密
  * This program tests the AES cipher. Usage:<br>
  * java aes.AESTest -genkey keyfile<br>
  * java aes.AESTest -encrypt plaintext encrypted keyfile<br>
