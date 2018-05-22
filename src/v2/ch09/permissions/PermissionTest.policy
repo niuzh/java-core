@@ -1,0 +1,4 @@
+grant 
+{  
+   permission v2.ch09.permissions.WordCheckPermission "sex,drugs,C++", "avoid";   
+};
