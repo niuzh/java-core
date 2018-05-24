@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_17"/>
 	<classpathentry kind="lib" path="src/v2/ch03/mail/mail-1.4.7.jar"/>
 	<classpathentry kind="lib" path="src/v2/ch04/derbyclient.jar"/>
+	<classpathentry kind="lib" path="src/v2/ch10/bytecodeAnnotations/bcel-6.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="src/v2/ch10/bytecodeAnnotations/EntryLoggingAgent.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
