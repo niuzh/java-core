@@ -9,6 +9,7 @@ import javax.naming.NameClassPair;
 import javax.naming.NamingException;
 
 /**
+ * 启动客户端 java v2.ch11.warehouse1.WarehouseClient
  * A client that invokes a remote method.
  * @version 1.0 2007-10-09
  * @author Cay Horstmann

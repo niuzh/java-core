@@ -7,7 +7,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 /**
- * 新开控制台 启动RMI注册表 rmiregistry
+ * 启动RMI注册表 新开控制台  rmiregistry
+ * 启动服务 java v2.ch11.warehouse1.WarehouseServer
  * This server program instantiates a remote warehouse object, registers it with the naming
  * service, and waits for clients to invoke methods.
  * @version 1.12 2007-10-09

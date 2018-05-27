@@ -1,34 +1,35 @@
-import java.io.*;
+package v2.ch11.warehouse2;
 
-public class Product implements Serializable
-{
-   private String description;
-   private double price;
-   private Warehouse location;
+import java.io.Serializable;
 
-   public Product(String description, double price)
-   {
-      this.description = description;
-      this.price = price;
-   }
+/**
+ * 可序列化的
+ * 
+ * @author niuzhihuan
+ */
+public class Product implements Serializable {
+	private String description;
+	private double price;
+	private Warehouse location;
 
-   public String getDescription()
-   {
-      return description;
-   }
+	public Product(String description, double price) {
+		this.description = description;
+		this.price = price;
+	}
 
-   public double getPrice()
-   {
-      return price;
-   }
+	public String getDescription() {
+		return description;
+	}
 
-   public Warehouse getLocation()
-   {
-      return location;
-   }
+	public double getPrice() {
+		return price;
+	}
 
-   public void setLocation(Warehouse location)
-   {
-      this.location = location;
-   }
+	public Warehouse getLocation() {
+		return location;
+	}
+
+	public void setLocation(Warehouse location) {
+		this.location = location;
+	}
 }
