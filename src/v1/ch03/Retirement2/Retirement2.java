@@ -1,12 +1,14 @@
+package v1.ch03.Retirement2;
+
 import java.util.*;
 
 /**
+ * do while
  * This program demonstrates a <code>do/while</code> loop.
  * @version 1.20 2004-02-10
  * @author Cay Horstmann
  */
-public class Retirement2
-{
+public class Retirement2{
    public static void main(String[] args)
    {
       Scanner in = new Scanner(System.in);

@@ -35,6 +35,11 @@
  * 	格式化输出
  * 	文件输入与输出
  * 控制流程
+ * 	块作用域
+ * 	条件语句
+ * 	循环：while,do while
+ * 	确定循环：for
+ * 	多重选择Switch语句
  * 大数值
  * 数组
  * @author niuzhihuan
