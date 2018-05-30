@@ -1,12 +1,12 @@
 /**
  * Java的基本程序设计结构
  * 
- * 一个简单的Java应用程序：通过一个main类程序，讲解了简单的java程序。
+ * 一个简单的Java应用程序：通过一个main类程序，讲解了简单的java程序结构。
  * 注释：Java中有三种注释。
  * 数据类型：4种整型、2种浮点型、一种字符类型char和一种表示真值的boolean类型。
  * 	整型(int,short,long,byte)
  * 	浮点类型(float,double)
- * 	char类型：代码点是指变码表中的某个字符对应的代码值。UTF-16编码采用不同长度的编码表示所有Unicode代码点。
+ * 	char类型：代码点是指编码表中的某个字符对应的代码值。UTF-16编码采用不同长度的编码表示所有Unicode代码点。
  * 	boolean类型
  * 变量：每个变量属于一种类型。
  * 	变量初始化：不能使用未初始化的变量。
@@ -40,8 +40,16 @@
  * 	循环：while,do while
  * 	确定循环：for
  * 	多重选择Switch语句
+ * 	中断控制流程语句：break,continue
  * 大数值
  * 数组
+ * 	for each循环
+ * 	数组初始化以及匿名数组：大括号初始化
+ * 	数组拷贝：Arrays.copyOf()
+ * 	命令行参数
+ * 	数组排序：Arrays.sort()
+ * 	多维数组
+ * 	不规则数组
  * @author niuzhihuan
  */
 package v1.ch03;
