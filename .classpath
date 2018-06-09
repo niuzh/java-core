@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="src/v2/ch04/derbyclient.jar"/>
 	<classpathentry kind="lib" path="src/v2/ch10/bytecodeAnnotations/bcel-6.0-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="src/v2/ch10/bytecodeAnnotations/EntryLoggingAgent.jar"/>
+	<classpathentry kind="lib" path="src/v1/ch10/javaws.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
