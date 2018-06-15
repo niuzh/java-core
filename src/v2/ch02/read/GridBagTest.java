@@ -15,7 +15,7 @@ public class GridBagTest {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				JFileChooser chooser = new JFileChooser(".");
+				JFileChooser chooser = new JFileChooser("src/v2/ch02/read");
 				chooser.showOpenDialog(null);
 				File file = chooser.getSelectedFile();
 				JFrame frame = new FontFrame(file);
@@ -50,8 +50,7 @@ class FontFrame extends JFrame {
 		bold = (JCheckBox) gridbag.get("bold");
 		italic = (JCheckBox) gridbag.get("italic");
 
-		face.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "Serif", "SansSerif", "Monospaced", "Dialog", "DialogInput" }));
+		face.setModel(new DefaultComboBoxModel<String>(new String[] { "Serif", "SansSerif", "Monospaced", "Dialog", "DialogInput" }));
 
 		size.setModel(new DefaultComboBoxModel<String>(new String[] { "8", "10", "12", "15", "18", "24", "36", "48" }));
 
