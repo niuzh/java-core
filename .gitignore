@@ -6,7 +6,6 @@
 *.iml
 **/bin/*
 /bin/
-src-code/
 **/*.class
 .settings/
 *.log
